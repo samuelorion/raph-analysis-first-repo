@@ -1,0 +1,4 @@
+1. Make github account
+2. Get github desktop
+3. set up on your own machine (ie get folder) and add new repo to your git https://github.com/samuelorion/raph-analysis-first-repo
+4. tip: search how to use github desktop and set up
