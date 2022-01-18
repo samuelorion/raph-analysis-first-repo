@@ -2,6 +2,8 @@
 
 	directory = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis";
 	skeletondata = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/skeleton-output";
+	//TEST RAPH TO SEE IF I'M ABLE TO RUN IT ON MY COMPUTER directory = "/Users/raphaelledenis/Desktop/raph-analysis";
+	//TEST RAPH TO SEE IF I'M ABLE TO RUN IT ON MY COMPUTER skeletondata = "/Users/raphaelledenis/Desktop/raph-analysis/skeleton-output";
 	
 	
 	// create for loop to open stacks to then run analysis 
