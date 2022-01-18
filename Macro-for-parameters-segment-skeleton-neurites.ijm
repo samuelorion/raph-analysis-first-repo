@@ -7,13 +7,13 @@
  */
 
 
- // clearn, binarize, and skeletonize - define variables for gaussian, 
- // and threholding that will be used
+ // clean, binarize, and skeletonize - define variables for gaussian, 
+ // and thresholding that will be used
 
  	stack = getTitle();
 
 
-//for (s = 1; s < 562; s+=50) {
+//for (s = 1; s < 562; s+=50) {   // s is the slice number, s+ is the interval but s++ is to run at each slice 
 for (s = 1; s < 3; s++) {
  	
  	selectWindow(stack);
@@ -45,14 +45,14 @@ for (s = 1; s < 3; s++) {
 
 	//add skeleton 
 	run("Duplicate...", " ");
-	run("Dilate"); // test 
+	run("Dilate"); // test, could put more than 1 dilate if needed
 	run("Skeletonize");
 	run("Duplicate...", " ");
-	run("Analyze Particles...", "size=10-10000 circularity=0-1 pixel show=Masks");
+	run("Analyze Particles...", "size=10-10000 circularity=0-1 pixel show=Masks"); //modify the interval if needed
 	run("Grays"); // note - for some reason, the image is not in gray scale - curious 
 	run("Analyze Skeleton (2D/3D)", "prune=none");
 
- }
+ } //end of the for loop
 	
 	run("Tile"); // places the images across the display so can see them all next to one another
 
