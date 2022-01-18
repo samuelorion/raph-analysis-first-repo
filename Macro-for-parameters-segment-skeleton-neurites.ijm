@@ -11,10 +11,11 @@
  // and threholding that will be used
 
  	stack = getTitle();
- 
 
- for (s = 1; s < 200; s+=10) {
 
+//for (s = 1; s < 562; s+=50) {
+for (s = 1; s < 3; s++) {
+ 	
  	selectWindow(stack);
 //when running for loop	//s = getSliceNumber(); // to duplicate the image that is currently visualised, you need to tell imageJ to duplicate that frame (otherwise it will duplicate the first image) 
 	run("Duplicate...", "duplicate range="+s+"-"+s+""); // note that you need the '+' symbols and that the extra "" at the end for the command to work
@@ -31,7 +32,9 @@
 	run("Enhance Contrast", "saturated=0.35");
 	subtractedGaussian = getTitle();
 	run("8-bit");
+	close(gaussian);
 
+	selectWindow(subtractedGaussian);
 	run("Duplicate...", " ");
 	setMinAndMax(0, 100);
 	setThreshold(200, 255); //modify lower value (ie to the left for threshold)
@@ -44,7 +47,6 @@
 	run("Duplicate...", " ");
 	run("Dilate"); // test 
 	run("Skeletonize");
-
 	run("Duplicate...", " ");
 	run("Analyze Particles...", "size=10-10000 circularity=0-1 pixel show=Masks");
 	run("Grays"); // note - for some reason, the image is not in gray scale - curious 
@@ -56,13 +58,9 @@
 
 	// TODO SECTION 
 
-	- remove for loop 
-	- new macro - to run on full data set, and save resulsts in csv
-	- export and save skeleton data and move to next step
-	
 	// it's possible to close images for speeding up things - or, that you do not duplicate every step and you do windwoless mode
 	//close(raw);
-	//close(gaussian);
+	//
 
 	//close(gaussian);
 	//close(subtractedGaussian); 

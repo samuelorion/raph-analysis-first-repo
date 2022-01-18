@@ -4,7 +4,12 @@
 
 Here is a [link](https://github.com/samuelorion/raph-analysis-first-repo), for example, to the main repo. 
 
-A change on github
-A change on Sam's computer. 
+Ps. Sam deleted some comments. 
 
-HELLLOOOO
+## Next steps 
+
+- issue with save csv 
+- set directory 
+- run and whole dataset 
+
+	
