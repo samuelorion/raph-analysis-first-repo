@@ -2,8 +2,10 @@
 
 setBatchMode("hide"); // ** modify me if you want to see the process (you can just add '//' before the command to comment out the command ** 
 
-directory = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/images"; // ** modify me ** 
-skeletondata = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/skeleton-output"; // ** modify me ** 
+//directory = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/images"; // ** modify me ** 
+directory = "/Users/raphaelledenis/Desktop/raph-analysis/images";
+//skeletondata = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/skeleton-output"; // ** modify me ** 
+skeletondata = "/Users/raphaelledenis/Desktop/raph-analysis/skeleton-output";
 
 // for loop to open images within 'directory' *** 
 
@@ -20,21 +22,21 @@ list_directory = getFileList(directory);
 	run("Set Scale...", "distance=0 known=0 pixel=1 unit=pixel"); 
 	run("Duplicate...", "duplicate");
 	gaussian = getTitle();
-	run("Gaussian Blur...", "sigma=40 stack"); // ** modify me ** 
+	run("Gaussian Blur...", "sigma=30 stack"); // ** modify me ** 
 	imageCalculator("Subtract create stack", raw, gaussian);
 	run("8-bit");
 	subtractedGaussian = getTitle();
 	close(gaussian);
 	selectWindow(subtractedGaussian);
 	setAutoThreshold("Default dark");
-	setThreshold(200, 255);	// ** modify me ** 
+	setThreshold(5, 255);	// ** modify me ** 
 	setOption("BlackBackground", true);
 	run("Convert to Mask", "method=Default background=Dark black");
 	//run("Duplicate...", "duplicate");
-	run("Dilate", "stack");
+	//run("Dilate", "stack");
 	run("Skeletonize", "stack");
 	skeleton = getTitle();
-	run("Analyze Particles...", "size=10-10000 circularity=0-1 pixel show=Masks stack"); // ** modify me ** 
+	run("Analyze Particles...", "size=100-10000 circularity=0-1 pixel show=Masks stack"); // ** modify me ** 
 	skeletonMinusParticles = getTitle();
 	close(skeleton);
 	run("Grays");
