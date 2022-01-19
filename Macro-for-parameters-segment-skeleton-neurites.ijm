@@ -10,11 +10,11 @@
  // clean, binarize, and skeletonize - define variables for gaussian, 
  // and thresholding that will be used
 
- 	stack = getTitle();
+ stack = getTitle();
 
 
-//for (s = 1; s < 562; s+=50) {   // s is the slice number, s+ is the interval but s++ is to run at each slice 
-for (s = 1; s < 3; s++) {
+//for (s = 1; s < 562; s+=50) // ** modify me **  {   // s is the slice number, s+ is the interval but s++ is to run at each slice 
+for (s = 1; s < 3; s++) { // ** modify me ** 
  	
  	selectWindow(stack);
 //when running for loop	//s = getSliceNumber(); // to duplicate the image that is currently visualised, you need to tell imageJ to duplicate that frame (otherwise it will duplicate the first image) 
@@ -26,7 +26,7 @@ for (s = 1; s < 3; s++) {
 	
 	run("Duplicate...", " ");
 	gaussian = getTitle();
-	run("Gaussian Blur...", "sigma=40"); //modify the value: example if I want sigma to = 100, I would write run("Gaussian Blur...", "sigma=100"); 
+	run("Gaussian Blur...", "sigma=40"); // ** modify me **  //modify the value: example if I want sigma to = 100, I would write run("Gaussian Blur...", "sigma=100"); 
 	
 	imageCalculator("Subtract create", raw, gaussian);
 	run("Enhance Contrast", "saturated=0.35");
@@ -37,7 +37,7 @@ for (s = 1; s < 3; s++) {
 	selectWindow(subtractedGaussian);
 	run("Duplicate...", " ");
 	setMinAndMax(0, 100);
-	setThreshold(200, 255); //modify lower value (ie to the left for threshold)
+	setThreshold(200, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
 	//setOption("BlackBackground", false);
 	run("Convert to Mask");
 
@@ -48,7 +48,7 @@ for (s = 1; s < 3; s++) {
 	run("Dilate"); // test, could put more than 1 dilate if needed
 	run("Skeletonize");
 	run("Duplicate...", " ");
-	run("Analyze Particles...", "size=10-10000 circularity=0-1 pixel show=Masks"); //modify the interval if needed
+	run("Analyze Particles...", "size=10-10000 circularity=0-1 pixel show=Masks"); // ** modify me **  //modify the interval if needed
 	run("Grays"); // note - for some reason, the image is not in gray scale - curious 
 	run("Analyze Skeleton (2D/3D)", "prune=none");
 

@@ -20,8 +20,14 @@ Notes: Great for learning about global open science practices, to get orientated
 
 ## Next steps 
 
-- issue with save csv 
-- set directory 
-- run and whole dataset 
+- Raph use parameter macro
+- Run on whole data set with new parameters (WRITE DOWN YOUR PARAMETERS!) (write in your lab book how to do this - with screen shots!!! 
+- Next -> modify python script
+- Next - analysis and figures! 
+- ~~issue with save csv~~
+ - still have issue of multiple lines per csv due to multiple objects segmented. Solution - python script to combine into single csv
+- ~~set directory~~ 
+- ~~run and whole dataset~~
+ 
 
 	
