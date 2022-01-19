@@ -13,8 +13,8 @@
  stack = getTitle();
 
 
-//for (s = 1; s < 562; s+=50) // ** modify me **  {   // s is the slice number, s+ is the interval but s++ is to run at each slice 
-for (s = 1; s < 3; s++) { // ** modify me ** 
+for (s = 1; s < 350; s+=50) { // ** modify me **  {   // s is the slice number, s+ is the interval but s++ is to run at each slice 
+//for (s = 350; s < 355; s++) { // ** modify me ** 
  	
  	selectWindow(stack);
 //when running for loop	//s = getSliceNumber(); // to duplicate the image that is currently visualised, you need to tell imageJ to duplicate that frame (otherwise it will duplicate the first image) 
@@ -26,7 +26,7 @@ for (s = 1; s < 3; s++) { // ** modify me **
 	
 	run("Duplicate...", " ");
 	gaussian = getTitle();
-	run("Gaussian Blur...", "sigma=40"); // ** modify me **  //modify the value: example if I want sigma to = 100, I would write run("Gaussian Blur...", "sigma=100"); 
+	run("Gaussian Blur...", "sigma=30"); // ** modify me **  //modify the value: example if I want sigma to = 100, I would write run("Gaussian Blur...", "sigma=100"); 
 	
 	imageCalculator("Subtract create", raw, gaussian);
 	run("Enhance Contrast", "saturated=0.35");
@@ -36,12 +36,13 @@ for (s = 1; s < 3; s++) { // ** modify me **
 
 	selectWindow(subtractedGaussian);
 	run("Duplicate...", " ");
-	setMinAndMax(0, 100);
-	setThreshold(200, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
+	setMinAndMax(0, 13);
+	setThreshold(3, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
 	//setOption("BlackBackground", false);
 	run("Convert to Mask");
 
 	// despekle — will probably need to add this at some point on messier images. So far not needed 
+	run("Despeckle");
 
 	//add skeleton 
 	run("Duplicate...", " ");
