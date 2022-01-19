@@ -37,19 +37,19 @@ for (s = 1; s < 350; s+=50) { // ** modify me **  {   // s is the slice number, 
 	selectWindow(subtractedGaussian);
 	run("Duplicate...", " ");
 	setMinAndMax(0, 13);
-	setThreshold(3, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
+	setThreshold(5, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
 	//setOption("BlackBackground", false);
 	run("Convert to Mask");
 
 	// despekle — will probably need to add this at some point on messier images. So far not needed 
-	run("Despeckle");
+	//run("Despeckle");
 
 	//add skeleton 
 	run("Duplicate...", " ");
-	run("Dilate"); // test, could put more than 1 dilate if needed
+	//run("Dilate"); // test, could put more than 1 dilate if needed
 	run("Skeletonize");
 	run("Duplicate...", " ");
-	run("Analyze Particles...", "size=10-10000 circularity=0-1 pixel show=Masks"); // ** modify me **  //modify the interval if needed
+	run("Analyze Particles...", "size=100-10000 circularity=0-1 pixel show=Masks"); // ** modify me **  //modify the interval if needed
 	run("Grays"); // note - for some reason, the image is not in gray scale - curious 
 	run("Analyze Skeleton (2D/3D)", "prune=none");
 
