@@ -2,10 +2,10 @@
 
 setBatchMode("hide"); // ** modify me if you want to see the process (you can just add '//' before the command to comment out the command ** 
 
-//directory = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/images"; // ** modify me ** 
-directory = "/Users/raphaelledenis/Desktop/raph-analysis/images";
-//skeletondata = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/skeleton-output"; // ** modify me ** 
-skeletondata = "/Users/raphaelledenis/Desktop/raph-analysis/skeleton-output";
+directory = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/images"; // ** modify me ** 
+//directory = "/Users/raphaelledenis/Desktop/raph-analysis/images";
+skeletondata = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/skeleton-output"; // ** modify me ** 
+//skeletondata = "/Users/raphaelledenis/Desktop/raph-analysis/skeleton-output";
 
 // for loop to open images within 'directory' *** 
 

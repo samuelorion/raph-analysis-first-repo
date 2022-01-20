@@ -13,7 +13,7 @@
  stack = getTitle();
 
 
-for (s = 1; s < 350; s+=50) { // ** modify me **  {   // s is the slice number, s+ is the interval but s++ is to run at each slice 
+for (s = 1; s < 350; s+=100) { // ** modify me **  {   // s is the slice number, s+ is the interval but s++ is to run at each slice 
 //for (s = 350; s < 355; s++) { // ** modify me ** 
  	
  	selectWindow(stack);
@@ -36,7 +36,7 @@ for (s = 1; s < 350; s+=50) { // ** modify me **  {   // s is the slice number, 
 
 	selectWindow(subtractedGaussian);
 	run("Duplicate...", " ");
-	setMinAndMax(0, 13);
+	setMinAndMax(0, 100);
 	setThreshold(5, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
 	//setOption("BlackBackground", false);
 	run("Convert to Mask");
