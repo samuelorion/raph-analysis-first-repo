@@ -22,14 +22,14 @@ list_directory = getFileList(directory);
 	run("Set Scale...", "distance=0 known=0 pixel=1 unit=pixel"); 
 	run("Duplicate...", "duplicate");
 	gaussian = getTitle();
-	run("Gaussian Blur...", "sigma=90 stack"); // ** modify me ** 
+	run("Gaussian Blur...", "sigma=70 stack"); // ** modify me ** 
 	imageCalculator("Subtract create stack", raw, gaussian);
 	run("8-bit");
 	subtractedGaussian = getTitle();
 	close(gaussian);
 	selectWindow(subtractedGaussian);
 	setAutoThreshold("Default dark");
-	setThreshold(12, 255);	// ** modify me ** 
+	setThreshold(9, 255);	// ** modify me ** 
 	setOption("BlackBackground", true);
 	run("Convert to Mask", "method=Default background=Dark black");
 	//run("Duplicate...", "duplicate");
