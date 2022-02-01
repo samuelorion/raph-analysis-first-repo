@@ -26,7 +26,7 @@ for (s = 1; s < 350; s+=100) { // ** modify me **  {   // s is the slice number,
 	
 	run("Duplicate...", " ");
 	gaussian = getTitle();
-	run("Gaussian Blur...", "sigma=30"); // ** modify me **  //modify the value: example if I want sigma to = 100, I would write run("Gaussian Blur...", "sigma=100"); 
+	run("Gaussian Blur...", "sigma=90"); // ** modify me **  //modify the value: example if I want sigma to = 100, I would write run("Gaussian Blur...", "sigma=100"); 
 	
 	imageCalculator("Subtract create", raw, gaussian);
 	run("Enhance Contrast", "saturated=0.35");
@@ -37,7 +37,7 @@ for (s = 1; s < 350; s+=100) { // ** modify me **  {   // s is the slice number,
 	selectWindow(subtractedGaussian);
 	run("Duplicate...", " ");
 	setMinAndMax(0, 100);
-	setThreshold(5, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
+	setThreshold(12, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
 	//setOption("BlackBackground", false);
 	run("Convert to Mask");
 
@@ -46,7 +46,8 @@ for (s = 1; s < 350; s+=100) { // ** modify me **  {   // s is the slice number,
 
 	//add skeleton 
 	run("Duplicate...", " ");
-	//run("Dilate"); // test, could put more than 1 dilate if needed
+	run("Dilate"); // test, could put more than 1 dilate if needed
+	run("Dilate");
 	run("Skeletonize");
 	run("Duplicate...", " ");
 	run("Analyze Particles...", "size=100-10000 circularity=0-1 pixel show=Masks"); // ** modify me **  //modify the interval if needed
