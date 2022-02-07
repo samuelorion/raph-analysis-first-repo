@@ -14,7 +14,7 @@
 
 
 for (s = 1; s < 350; s+=100) { // ** modify me **  {   // s is the slice number, s+ is the interval but s++ is to run at each slice 
-//for (s = 350; s < 355; s++) { // ** modify me ** 
+//for (s = 170; s < 230; s+=5) { // ** modify me ** 
  	
  	selectWindow(stack);
 //when running for loop	//s = getSliceNumber(); // to duplicate the image that is currently visualised, you need to tell imageJ to duplicate that frame (otherwise it will duplicate the first image) 
@@ -37,20 +37,21 @@ for (s = 1; s < 350; s+=100) { // ** modify me **  {   // s is the slice number,
 	selectWindow(subtractedGaussian);
 	run("Duplicate...", " ");
 	setMinAndMax(0, 100);
-	setThreshold(4, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
+	setThreshold(2, 255); // ** modify me **  //modify lower value (ie to the left for threshold)
 	//setOption("BlackBackground", false);
 	run("Convert to Mask");
 
 	// despekle — will probably need to add this at some point on messier images. So far not needed 
-	//run("Despeckle");
+	run("Despeckle");
 
+	
 	//add skeleton 
 	run("Duplicate...", " ");
-	run("Dilate"); // test, could put more than 1 dilate if needed
-	run("Dilate");
+	//run("Dilate"); // test, could put more than 1 dilate if needed
+	//run("Dilate");
 	run("Skeletonize");
 	run("Duplicate...", " ");
-	run("Analyze Particles...", "size=30-10000 circularity=0-1 pixel show=Masks"); // ** modify me **  //modify the interval if needed
+	run("Analyze Particles...", "size=50-10000 circularity=0-1 pixel show=Masks"); // ** modify me **  //modify the interval if needed
 	run("Grays"); // note - for some reason, the image is not in gray scale - curious 
 	run("Analyze Skeleton (2D/3D)", "prune=none");
 
