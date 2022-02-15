@@ -5,7 +5,7 @@ setBatchMode("hide"); // ** modify me if you want to see the process (you can ju
 //directory = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/images"; // ** modify me ** 
 directory = "/Users/raphaelledenis/Desktop/raph-analysis/images";
 //skeletondata = "/Users/samuelorion/Desktop/assorted-desktop/raph-analysis/skeleton-output"; // ** modify me ** 
-skeletondata = "/Users/raphaelledenis/Desktop/raph-analysis/skeleton-output";
+skeletondata = "/Users/raphaelledenis/Desktop/raph-analysis/rawdata";
 
 // for loop to open images within 'directory' *** 
 
@@ -29,15 +29,16 @@ list_directory = getFileList(directory);
 	close(gaussian);
 	selectWindow(subtractedGaussian);
 	setAutoThreshold("Default dark");
-	setThreshold(9, 255);	// ** modify me ** 
+	setThreshold(2, 255);	// ** modify me ** 
 	setOption("BlackBackground", true);
 	run("Convert to Mask", "method=Default background=Dark black");
 	//run("Duplicate...", "duplicate");
+	//run("Despeckle", "stack");
 	run("Dilate", "stack");
-	run("Dilate", "stack");
+	//run("Dilate", "stack");
 	run("Skeletonize", "stack");
 	skeleton = getTitle();
-	run("Analyze Particles...", "size=100-10000 circularity=0-1 pixel show=Masks stack"); // ** modify me ** 
+	run("Analyze Particles...", "size=35-10000 circularity=0-1 pixel show=Masks stack"); // ** modify me ** 
 	skeletonMinusParticles = getTitle();
 	close(skeleton);
 	run("Grays");
